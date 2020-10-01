@@ -20,6 +20,9 @@
         <docker.image.prefix>itisha</docker.image.prefix>
         <!--Set to name of project-->
         <docker.image.name>docker-demo</docker.image.name>
+
+        <!-- host port that container port 8080 is mapped to -->
+        <host.port>8080</host.port>
     </properties>
 
     <dependencies>
@@ -90,6 +93,13 @@
                                     <tag>${project.version}</tag>
                                 </tags>
                             </build>
+                            <run>
+                                <!-- mvn docker:run -->
+                                <!-- mvn docker:stop -->
+                                <ports>
+                                    <port>host.port:8080</port>
+                                </ports>
+                            </run>
                         </image>
                     </images>
                 </configuration>
